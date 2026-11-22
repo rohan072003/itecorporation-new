@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="itec-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B4EA2"/>
+      <stop offset="100%" stop-color="#0A1D36"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect width="64" height="64" rx="14" fill="url(#itec-grad)"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#1A6FD1" stroke-width="2.5"/>
+  <!-- ITEC Brand Initials -->
+  <text x="50%" y="54%" dominant-baseline="central" text-anchor="middle" font-family="Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-weight="900" font-size="21" letter-spacing="0.5">
+    <tspan fill="#38BDF8">I</tspan><tspan fill="#FFFFFF">TEC</tspan>
+  </text>
+  <!-- Power Accent Indicator -->
+  <circle cx="53" cy="13" r="3.5" fill="#38BDF8"/>
+  <circle cx="53" cy="13" r="1.5" fill="#FFFFFF"/>
+</svg>

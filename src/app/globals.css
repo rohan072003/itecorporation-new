@@ -1,0 +1,253 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy-dark: #071322;
+    --navy-primary: #0A1D36;
+    --navy-secondary: #0F2A4D;
+    --navy-card: #13335D;
+    --blue-royal: #0B4EA2;
+    --blue-bright: #1E70D6;
+    --blue-sky: #38BDF8;
+    --blue-glow: rgba(30, 112, 214, 0.2);
+    --gold-accent: #F59E0B;
+    --steel-border: #E2E8F0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #F8FAFC;
+    color: #0A1D36;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.025em;
+  }
+
+  .font-hero {
+    font-family: var(--font-jakarta), var(--font-inter), system-ui, sans-serif;
+    font-style: normal;
+    font-synthesis: none;
+    letter-spacing: -0.02em;
+  }
+
+  .font-hero h1 {
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Accessibility: Support prefers-reduced-motion (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Technical Blueprint Grid Pattern */
+.bg-blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(11, 78, 162, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 78, 162, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-blueprint-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(11, 78, 162, 0.12) 1.2px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.bg-diagonal-accent {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(11, 78, 162, 0.025),
+    rgba(11, 78, 162, 0.025) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+/* Premium Glass & Lighting Accents */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 29, 54, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 35px -5px rgba(30, 112, 214, 0.25);
+}
+
+.glow-blue-lg {
+  box-shadow: 0 0 60px -10px rgba(11, 78, 162, 0.35);
+}
+
+/* Corner fold / triangle badge styling */
+.corner-triangle-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.corner-triangle-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 44px 44px 0;
+  border-color: transparent #0B4EA2 transparent transparent;
+  z-index: 1;
+  transition: border-color 0.2s ease;
+}
+
+.group:hover .corner-triangle-badge::before {
+  border-color: transparent #1E70D6 transparent transparent;
+}
+
+.corner-triangle-badge-dark::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 44px 44px 0;
+  border-color: transparent #1E70D6 transparent transparent;
+  z-index: 1;
+}
+
+/* Industrial Technical Crosshair Marker */
+.technical-crosshair {
+  position: relative;
+}
+.technical-crosshair::after {
+  content: "+";
+  position: absolute;
+  font-family: monospace;
+  font-size: 14px;
+  color: #0B4EA2;
+  opacity: 0.5;
+}
+
+/* Smooth Image Hover Shine Effect */
+.image-shine {
+  position: relative;
+  overflow: hidden;
+}
+.image-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 70%
+  );
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+.image-shine:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* Google <model-viewer> — transparent hero stage */
+model-viewer {
+  display: block;
+  background-color: transparent;
+  --poster-color: transparent;
+  --progress-bar-color: #0b4ea2;
+  --progress-bar-height: 2px;
+}
+
+model-viewer::part(default-progress-bar) {
+  display: none;
+}
+
+/* Industries marquee — opposite vertical columns */
+@keyframes industries-marquee-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes industries-marquee-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-industries-up {
+  animation: industries-marquee-up linear infinite;
+}
+
+.animate-industries-down {
+  animation: industries-marquee-down linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-industries-up,
+  .animate-industries-down {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Top navbar running strip */
+@keyframes nav-ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-nav-ticker {
+  animation: nav-ticker 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-nav-ticker {
+    animation: none !important;
+  }
+}
