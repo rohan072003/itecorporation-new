@@ -48,7 +48,6 @@ export function preloadHeroModel(): Promise<string> {
           const network = await fetch(MODEL_PATH, {
             credentials: "same-origin",
             mode: "cors",
-            // @ts-expect-error — Fetch Priority API
             priority: "high",
             cache: "force-cache",
           });
@@ -61,7 +60,6 @@ export function preloadHeroModel(): Promise<string> {
         const network = await fetch(MODEL_PATH, {
           credentials: "same-origin",
           mode: "cors",
-          // @ts-expect-error — Fetch Priority API
           priority: "high",
           cache: "force-cache",
         });
