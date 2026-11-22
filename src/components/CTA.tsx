@@ -92,14 +92,14 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
             ))}
           </div>
 
-          <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+          <div className="mt-7 flex w-full flex-wrap items-center justify-center gap-2 sm:mt-9 sm:gap-3">
             <button
               type="button"
               onClick={handleClick}
-              className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B1F3A] shadow-lg shadow-black/20 transition hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:w-auto"
+              className="inline-flex min-h-10 flex-[1_1_42%] cursor-pointer items-center justify-center gap-1.5 rounded-full bg-white px-3 py-2.5 text-[12px] font-semibold text-[#0B1F3A] shadow-lg shadow-black/20 transition hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:min-h-11 sm:flex-none sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
             >
               Talk to ITEC
-              <ArrowRight className="h-4 w-4 text-[#0B4EA2]" />
+              <ArrowRight className="h-3.5 w-3.5 text-[#0B4EA2] sm:h-4 sm:w-4" />
             </button>
 
             <a
@@ -107,17 +107,17 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instant WhatsApp Chat with ITEC"
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-950/40 transition hover:bg-[#1A6FD1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:w-auto"
+              className="inline-flex min-h-10 flex-[1_1_42%] items-center justify-center gap-1.5 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-3 py-2.5 text-[12px] font-semibold text-white shadow-md shadow-blue-950/40 transition hover:bg-[#1A6FD1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:min-h-11 sm:flex-none sm:gap-2 sm:px-6 sm:py-3 sm:text-sm"
             >
-              <WhatsAppIcon className="h-4 w-4" />
-              Chat on WhatsApp
+              <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              WhatsApp
             </a>
 
             <a
               href={`tel:${CONTACT_DETAILS.phoneRaw}`}
-              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sky-100 backdrop-blur-sm transition hover:border-sky-300/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:w-auto"
+              className="inline-flex min-h-10 w-full items-center justify-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-[12px] font-semibold text-sky-100 backdrop-blur-sm transition hover:border-sky-300/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:min-h-11 sm:w-auto sm:gap-2 sm:px-5 sm:py-3 sm:text-sm"
             >
-              <Phone className="h-4 w-4 text-sky-300" />
+              <Phone className="h-3.5 w-3.5 text-sky-300 sm:h-4 sm:w-4" />
               {CONTACT_DETAILS.phoneDisplay || CONTACT_DETAILS.phone}
             </a>
           </div>

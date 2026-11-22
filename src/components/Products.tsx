@@ -118,12 +118,12 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
         type="button"
         onClick={() => selectCategory(name)}
         aria-pressed={isActive}
-        className="font-hero group flex w-[30%] max-w-[7.5rem] cursor-pointer flex-col items-center gap-1.5 focus-visible:outline-none sm:w-auto sm:min-w-[5.5rem] sm:max-w-[8rem] sm:flex-1 xl:min-w-0 xl:max-w-none"
+        className="font-hero group flex w-[4.75rem] shrink-0 snap-start cursor-pointer flex-col items-center gap-1 focus-visible:outline-none sm:w-auto sm:min-w-[5.5rem] sm:max-w-[8rem] sm:flex-1 sm:gap-1.5 xl:min-w-0 xl:max-w-none"
       >
         <span
-          className={`relative mx-auto flex aspect-square w-[4.75rem] items-center justify-center rounded-full transition-all duration-300 sm:w-[min(100%,5.75rem)] xl:w-[82%] xl:max-w-[6.5rem] ${
+          className={`relative mx-auto flex aspect-square w-[4.25rem] items-center justify-center rounded-full transition-all duration-300 sm:w-[min(100%,5.75rem)] xl:w-[82%] xl:max-w-[6.5rem] ${
             isActive
-              ? "bg-[#0B4EA2]/15 shadow-[0_0_0_5px_rgba(11,78,162,0.12),0_10px_24px_-8px_rgba(11,78,162,0.4)]"
+              ? "bg-[#0B4EA2]/15 shadow-[0_0_0_4px_rgba(11,78,162,0.12),0_8px_20px_-8px_rgba(11,78,162,0.4)]"
               : "bg-transparent"
           }`}
         >
@@ -144,14 +144,14 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           </span>
         </span>
         <span
-          className={`w-full px-0.5 text-center text-[11px] leading-tight transition-colors sm:text-[11px] md:text-[12px] lg:text-[13px] ${
+          className={`w-full px-0.5 text-center text-[10px] leading-tight transition-colors sm:text-[11px] md:text-[12px] lg:text-[13px] ${
             isActive ? "font-semibold text-[#0B4EA2]" : "font-medium text-[#0B1F3A]"
           }`}
         >
           {name}
         </span>
         <span
-          className={`rounded-full px-2 py-0.5 text-[10px] font-medium transition-colors sm:px-2.5 sm:text-[11px] ${
+          className={`rounded-full px-1.5 py-0.5 text-[9px] font-medium transition-colors sm:px-2.5 sm:text-[11px] ${
             isActive
               ? "bg-[#0B4EA2] text-white"
               : "border border-sky-200 bg-white text-[#0B4EA2] group-hover:border-[#0B4EA2]/40"
@@ -188,13 +188,18 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           </p>
         </div>
 
-        {/* Category circles — wrap on phones; single row only on xl+ */}
-        <div className="mb-10 sm:mb-12" role="group" aria-label="Product categories">
-          <div className="flex w-full flex-wrap items-start justify-center gap-x-2 gap-y-5 sm:gap-x-3 md:gap-x-4 xl:flex-nowrap xl:justify-between xl:gap-x-2.5">
-            {categories.map((cat) => (
-              <CategoryCircle key={cat.name} {...cat} />
-            ))}
+        {/* Category circles — single row, horizontal scroll on phone */}
+        <div className="mb-8 sm:mb-12" role="group" aria-label="Product categories">
+          <div className="-mx-4 overflow-x-auto overscroll-x-contain px-4 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0">
+            <div className="flex w-max flex-nowrap items-start gap-3 sm:w-full sm:flex-wrap sm:justify-center sm:gap-x-3 sm:gap-y-5 md:gap-x-4 xl:flex-nowrap xl:justify-between xl:gap-x-2.5">
+              {categories.map((cat) => (
+                <CategoryCircle key={cat.name} {...cat} />
+              ))}
+            </div>
           </div>
+          <p className="mt-2 text-center text-[11px] text-slate-400 sm:hidden">
+            Swipe to browse categories →
+          </p>
           {selectedCategory !== "All" && (
             <div className="mt-8 flex justify-center">
               <button
@@ -279,14 +284,14 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
             </button>
           </div>
         ) : (
-          <div className="mb-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-10 grid grid-cols-2 gap-3 sm:mb-14 sm:gap-6 lg:grid-cols-3">
             {filteredProducts.map((product) => (
               <article
                 key={product.id}
-                className="font-hero group flex flex-col overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-[0_10px_30px_-18px_rgba(11,78,162,0.28)] transition hover:-translate-y-0.5 hover:border-[#0B4EA2]/25 hover:shadow-[0_16px_40px_-16px_rgba(11,78,162,0.35)]"
+                className="font-hero group flex flex-col overflow-hidden rounded-xl border border-sky-100 bg-white shadow-[0_10px_30px_-18px_rgba(11,78,162,0.28)] transition hover:-translate-y-0.5 hover:border-[#0B4EA2]/25 hover:shadow-[0_16px_40px_-16px_rgba(11,78,162,0.35)] sm:rounded-2xl"
               >
-                <div className="relative flex h-48 items-center justify-center bg-[#F7FAFE] p-4 sm:h-60 sm:p-5">
-                  <span className="absolute left-3 top-3 z-10 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-[#0B1F3A] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-white">
+                <div className="relative flex h-28 items-center justify-center bg-[#F7FAFE] p-2 sm:h-60 sm:p-5">
+                  <span className="absolute left-1.5 top-1.5 z-10 max-w-[calc(100%-0.75rem)] truncate rounded-full bg-[#0B1F3A] px-1.5 py-0.5 text-[8px] font-medium uppercase tracking-wide text-white sm:left-3 sm:top-3 sm:px-2.5 sm:py-1 sm:text-[10px]">
                     {product.category}
                   </span>
                   <div className="relative h-full w-full">
@@ -295,40 +300,40 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
                       alt={`${product.name} — industrial equipment`}
                       fill
                       loading="lazy"
-                      className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.04]"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+                      className="object-contain p-1 transition-transform duration-500 group-hover:scale-[1.04] sm:p-2"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1200px) 50vw, 380px"
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-[15px] font-semibold leading-snug text-[#0B1F3A] transition group-hover:text-[#0B4EA2] sm:text-base">
+                <div className="flex flex-1 flex-col p-2.5 sm:p-5">
+                  <h3 className="line-clamp-2 text-[12px] font-semibold leading-snug text-[#0B1F3A] transition group-hover:text-[#0B4EA2] sm:text-base">
                     {product.name}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-[13px] leading-relaxed text-slate-500">
+                  <p className="mt-1 line-clamp-2 hidden text-[13px] leading-relaxed text-slate-500 sm:mt-2 sm:block">
                     {product.shortDesc}
                   </p>
                   {product.standardRating && (
-                    <p className="mt-3 text-[12px] font-medium text-[#0B4EA2]">
+                    <p className="mt-1.5 line-clamp-1 text-[10px] font-medium text-[#0B4EA2] sm:mt-3 sm:text-[12px]">
                       {product.standardRating}
                     </p>
                   )}
 
-                  <div className="mt-auto flex items-center gap-2 pt-5">
+                  <div className="mt-auto flex flex-col gap-1.5 pt-3 sm:flex-row sm:items-center sm:gap-2 sm:pt-5">
                     <button
                       type="button"
                       onClick={() => handleEnquireClick(product.name)}
-                      className="inline-flex min-h-11 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full bg-[#0B4EA2] px-4 py-2.5 text-[13px] font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                      className="inline-flex min-h-8 flex-1 cursor-pointer items-center justify-center gap-1 rounded-full bg-[#0B4EA2] px-2 py-1.5 text-[11px] font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:min-h-11 sm:gap-1.5 sm:px-4 sm:py-2.5 sm:text-[13px]"
                     >
-                      <MessageSquare className="h-3.5 w-3.5" />
+                      <MessageSquare className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       Enquire
                     </button>
                     <button
                       type="button"
                       onClick={() => setActiveModalProduct(product)}
-                      className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-full border border-sky-200 bg-white px-4 py-2.5 text-[13px] font-medium text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2]"
+                      className="inline-flex min-h-8 cursor-pointer items-center justify-center gap-1 rounded-full border border-sky-200 bg-white px-2 py-1.5 text-[11px] font-medium text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] sm:min-h-11 sm:gap-1.5 sm:px-4 sm:py-2.5 sm:text-[13px]"
                     >
-                      <Eye className="h-3.5 w-3.5" />
+                      <Eye className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       View
                     </button>
                   </div>

@@ -24,15 +24,38 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const StatCard = ({
+  icon: Icon,
+  title,
+  subtitle,
+  className = "",
+}: {
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  title: string;
+  subtitle: string;
+  className?: string;
+}) => (
+  <div
+    className={`flex items-center gap-2 rounded-xl border border-sky-100 bg-white px-2.5 py-2 shadow-[0_6px_18px_-10px_rgba(11,78,162,0.28)] ring-1 ring-[#0B4EA2]/5 sm:gap-3 sm:rounded-2xl sm:px-3.5 sm:py-3 ${className}`}
+  >
+    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0B4EA2] text-white shadow-sm shadow-blue-900/20 sm:h-10 sm:w-10 sm:rounded-xl">
+      <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2} />
+    </div>
+    <div className="min-w-0 text-[11px] leading-snug not-italic sm:text-sm">
+      <div className="font-semibold text-[#0B1F3A]">{title}</div>
+      <div className="font-normal text-slate-500">{subtitle}</div>
+    </div>
+  </div>
+);
+
 export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
   return (
     <section
       id="hero"
       aria-label="Electrical Equipment & Power Electronics Supplier"
-      className="relative flex min-h-0 items-start overflow-x-clip overflow-y-visible border-b border-sky-100/80 sm:min-h-[calc(100dvh-7.5rem)] lg:min-h-dvh lg:items-center"
+      className="relative flex min-h-0 items-start overflow-x-clip border-b border-sky-100/80 lg:min-h-dvh lg:items-center"
     >
-      {/* Soft flowing blue background — matches mockup blobs */}
-      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute inset-0 bg-[#F4F8FD]" />
         <div
           className="absolute inset-0"
@@ -41,133 +64,41 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
               radial-gradient(ellipse 55% 70% at 92% 8%, rgba(147, 197, 253, 0.55) 0%, transparent 60%),
               radial-gradient(ellipse 50% 55% at 78% 42%, rgba(186, 230, 253, 0.4) 0%, transparent 55%),
               radial-gradient(ellipse 70% 75% at 88% 95%, rgba(96, 165, 250, 0.55) 0%, transparent 58%),
-              radial-gradient(ellipse 45% 50% at 55% 100%, rgba(147, 197, 253, 0.35) 0%, transparent 50%),
               linear-gradient(165deg, #F7FAFE 0%, #EEF4FC 45%, #E8F1FB 100%)
             `,
           }}
         />
-        <svg
-          className="absolute inset-0 h-full w-full"
-          viewBox="0 0 1440 900"
-          preserveAspectRatio="xMidYMid slice"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="heroFlowA" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#93C5FD" stopOpacity="0.55" />
-              <stop offset="55%" stopColor="#60A5FA" stopOpacity="0.38" />
-              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.22" />
-            </linearGradient>
-            <linearGradient id="heroFlowB" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#BFDBFE" stopOpacity="0.65" />
-              <stop offset="100%" stopColor="#93C5FD" stopOpacity="0.2" />
-            </linearGradient>
-            <linearGradient id="heroFlowC" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#DBEAFE" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.35" />
-            </linearGradient>
-          </defs>
-          {/* Top-right soft wash */}
-          <path
-            fill="url(#heroFlowB)"
-            d="M980,-40 C1120,20 1280,80 1480,40 L1480,320 C1320,380 1180,300 1040,260 C920,230 860,120 980,-40 Z"
-          />
-          {/* Main sweeping ribbon under the model */}
-          <path
-            fill="url(#heroFlowA)"
-            d="M520,920 C680,720 820,640 980,600 C1140,560 1280,540 1480,620 L1480,980 L520,980 Z"
-          />
-          {/* Lower-right curved pool */}
-          <path
-            fill="url(#heroFlowC)"
-            d="M760,980 C900,780 1080,700 1280,720 C1380,730 1480,780 1480,780 L1480,980 Z"
-          />
-        </svg>
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-4 sm:px-6 sm:pb-12 sm:pt-6 lg:px-8 lg:pb-14 lg:pt-2">
-        <div className="grid w-full translate-y-0 grid-cols-1 items-center gap-8 sm:-translate-y-6 sm:gap-10 lg:-translate-y-14 lg:grid-cols-12 lg:gap-8">
-          {/* Left copy */}
-          <div className="font-hero flex flex-col justify-center not-italic lg:col-span-6 xl:col-span-6">
-            <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-sky-200/80 bg-[#E8F2FC] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.05em] text-[#0B4EA2] shadow-[0_1px_2px_rgba(11,78,162,0.06)] sm:mb-5 sm:px-3.5 sm:text-[11px] sm:tracking-[0.06em]">
-              <Zap className="h-3.5 w-3.5 shrink-0 fill-[#0B4EA2]/15 text-[#0B4EA2]" strokeWidth={2.25} />
-              <span className="min-w-0 leading-snug">Direct India Sourcing &amp; Export Partner</span>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-8 pt-3 sm:px-6 sm:pb-12 sm:pt-6 lg:px-8 lg:pb-14 lg:pt-2">
+        {/*
+          Mobile order: copy → 3D → CTAs → stats
+          Desktop: copy+CTAs+stats left, model right
+        */}
+        <div className="font-hero grid grid-cols-1 items-center gap-4 sm:gap-6 lg:grid-cols-12 lg:gap-8 lg:-translate-y-10">
+          {/* Eyebrow + headline + intro */}
+          <div className="order-1 lg:col-span-6 lg:col-start-1 lg:row-start-1">
+            <div className="mb-2.5 inline-flex max-w-full items-center gap-1.5 rounded-full border border-sky-200/80 bg-[#E8F2FC] px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.04em] text-[#0B4EA2] sm:mb-4 sm:gap-2 sm:px-3.5 sm:py-1.5 sm:text-[11px] sm:tracking-[0.06em]">
+              <Zap className="h-3 w-3 shrink-0 fill-[#0B4EA2]/15 text-[#0B4EA2] sm:h-3.5 sm:w-3.5" strokeWidth={2.25} />
+              <span className="min-w-0 leading-snug">India Sourcing &amp; Export Partner</span>
             </div>
 
-            <h1 className="mb-4 max-w-xl text-[1.75rem] font-semibold not-italic leading-[1.18] text-[#0B1F3A] sm:mb-5 sm:text-4xl md:text-[2.55rem] lg:text-[2.65rem]">
+            <h1 className="mb-2.5 max-w-xl text-[1.45rem] font-semibold not-italic leading-[1.2] text-[#0B1F3A] sm:mb-4 sm:text-4xl md:text-[2.55rem] lg:text-[2.65rem]">
               Electrical Equipment &amp;{" "}
               <span className="font-semibold text-[#1A6FD1]">Power Electronics Supplier</span>{" "}
               for Europe
             </h1>
 
-            <p className="mb-6 max-w-lg text-[15px] font-normal not-italic leading-[1.7] text-slate-500 sm:mb-8 sm:text-[15.5px]">
+            <p className="max-w-lg text-[13px] font-normal not-italic leading-relaxed text-slate-500 sm:text-[15.5px] sm:leading-[1.7]">
               Source transformers, electrical components, voltage stabilisers, UPS
               systems and power electronics through ITEC. 100% factory-tested,
-              CE-compliant, and export-ready for European OEMs and distributors.
+              CE-compliant, and export-ready for European OEMs.
             </p>
-
-            <div className="mb-8 flex w-full flex-col gap-3 sm:mb-10 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
-              <button
-                type="button"
-                onClick={() => {
-                  if (onViewProductsClick) onViewProductsClick();
-                  else safeScrollTo("#products");
-                }}
-                className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-6 py-2.5 text-sm font-medium not-italic text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
-              >
-                <span>Browse Products</span>
-                <ArrowRight className="h-4 w-4" />
-              </button>
-
-              <a
-                href={CONTACT_DETAILS.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-200 bg-white px-6 py-2.5 text-sm font-medium not-italic text-[#0B4EA2] shadow-sm transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
-                aria-label="Chat on WhatsApp"
-              >
-                <WhatsAppIcon className="h-4 w-4" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-3">
-              <div className="flex items-center gap-3 rounded-2xl border border-sky-100 bg-white px-3.5 py-3 shadow-[0_8px_24px_-12px_rgba(11,78,162,0.28)] ring-1 ring-[#0B4EA2]/5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B4EA2] text-white shadow-sm shadow-blue-900/20">
-                  <BarChart3 className="h-4 w-4" strokeWidth={2} />
-                </div>
-                <div className="min-w-0 text-sm leading-snug not-italic">
-                  <div className="font-semibold text-[#0B1F3A]">Pune Cluster</div>
-                  <div className="font-normal text-slate-500">Maharashtra Hub</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-2xl border border-sky-100 bg-white px-3.5 py-3 shadow-[0_8px_24px_-12px_rgba(11,78,162,0.28)] ring-1 ring-[#0B4EA2]/5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B4EA2] text-white shadow-sm shadow-blue-900/20">
-                  <ShieldCheck className="h-4 w-4" strokeWidth={2} />
-                </div>
-                <div className="min-w-0 text-sm leading-snug not-italic">
-                  <div className="font-semibold text-[#0B1F3A]">100% Tested</div>
-                  <div className="font-normal text-slate-500">IS / IEC / CE Reports</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 rounded-2xl border border-sky-100 bg-white px-3.5 py-3 shadow-[0_8px_24px_-12px_rgba(11,78,162,0.28)] ring-1 ring-[#0B4EA2]/5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#0B4EA2] text-white shadow-sm shadow-blue-900/20">
-                  <Globe2 className="h-4 w-4" strokeWidth={2} />
-                </div>
-                <div className="min-w-0 text-sm leading-snug not-italic">
-                  <div className="font-semibold text-[#0B1F3A]">Global Export</div>
-                  <div className="font-normal text-slate-500">35+ Markets</div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Right: Google Model Viewer */}
-          <div className="relative flex items-center justify-center lg:col-span-6 xl:col-span-6">
-            <div className="relative mx-auto h-[min(68vw,320px)] w-full max-w-[560px] sm:h-[min(70vw,480px)] sm:max-w-[640px] lg:ml-auto lg:h-[min(72vh,640px)] lg:max-w-none lg:w-full">
-              {/* Soft ground glow under model */}
+          {/* 3D model — above CTAs on phone */}
+          <div className="order-2 lg:col-span-6 lg:col-start-7 lg:row-span-3 lg:row-start-1">
+            <div className="relative mx-auto h-[min(58vw,240px)] w-full max-w-[420px] sm:h-[min(70vw,480px)] sm:max-w-[640px] lg:ml-auto lg:h-[min(72vh,640px)] lg:max-w-none">
               <div
                 className="pointer-events-none absolute inset-x-[10%] bottom-[4%] h-[18%] rounded-[50%] bg-sky-300/35 blur-2xl"
                 aria-hidden="true"
@@ -176,8 +107,49 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
                 className="pointer-events-none absolute inset-x-[20%] bottom-[8%] h-[10%] rounded-[50%] bg-white/70 blur-md"
                 aria-hidden="true"
               />
-
               <HeroModelViewer />
+            </div>
+          </div>
+
+          {/* CTA pills — compact side-by-side on phone */}
+          <div className="order-3 lg:col-span-6 lg:col-start-1 lg:row-start-2">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  if (onViewProductsClick) onViewProductsClick();
+                  else safeScrollTo("#products");
+                }}
+                className="inline-flex min-h-10 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full bg-[#0B4EA2] px-3 py-2 text-[12px] font-medium not-italic text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:min-h-11 sm:flex-none sm:gap-2 sm:px-6 sm:py-2.5 sm:text-sm"
+              >
+                <span>Browse Products</span>
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              </button>
+
+              <a
+                href={CONTACT_DETAILS.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 flex-1 items-center justify-center gap-1.5 rounded-full border border-sky-200 bg-white px-3 py-2 text-[12px] font-medium not-italic text-[#0B4EA2] shadow-sm transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:min-h-11 sm:flex-none sm:gap-2 sm:px-6 sm:py-2.5 sm:text-sm"
+                aria-label="Chat on WhatsApp"
+              >
+                <WhatsAppIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Stats — 2 side by side, 3rd centered below on phone */}
+          <div className="order-4 lg:col-span-6 lg:col-start-1 lg:row-start-3">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+              <StatCard icon={BarChart3} title="Pune Cluster" subtitle="Maharashtra Hub" />
+              <StatCard icon={ShieldCheck} title="100% Tested" subtitle="IS / IEC / CE" />
+              <StatCard
+                icon={Globe2}
+                title="Global Export"
+                subtitle="35+ Markets"
+                className="col-span-2 mx-auto w-[calc(50%-0.25rem)] sm:col-span-1 sm:mx-0 sm:w-auto"
+              />
             </div>
           </div>
         </div>

@@ -131,35 +131,35 @@ export const WhyITEC: React.FC = () => {
         </div>
 
         {/* 4 cards */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:grid-cols-4 lg:gap-6">
           {HIGHLIGHTS.map((item) => {
             const Icon = item.icon;
             return (
               <article
                 key={item.title}
-                className="font-hero group flex flex-col overflow-hidden rounded-[1.25rem] border border-sky-100/90 bg-white shadow-[0_12px_36px_-18px_rgba(11,78,162,0.32)] transition duration-300 hover:-translate-y-1 hover:border-[#0B4EA2]/25 hover:shadow-[0_18px_44px_-16px_rgba(11,78,162,0.38)]"
+                className="font-hero group flex flex-col overflow-hidden rounded-xl border border-sky-100/90 bg-white shadow-[0_12px_36px_-18px_rgba(11,78,162,0.32)] transition duration-300 hover:-translate-y-1 hover:border-[#0B4EA2]/25 hover:shadow-[0_18px_44px_-16px_rgba(11,78,162,0.38)] sm:rounded-[1.25rem]"
               >
-                <div className="flex flex-1 flex-col p-5 pb-4 sm:p-5">
-                  <div className="mb-4 flex items-start justify-between gap-2">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#0B4EA2] text-white shadow-md shadow-blue-900/20">
-                      <Icon className="h-5 w-5" strokeWidth={2} />
+                <div className="flex flex-1 flex-col p-3 pb-3 sm:p-5 sm:pb-4">
+                  <div className="mb-2.5 flex items-start justify-between gap-1 sm:mb-4 sm:gap-2">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#0B4EA2] text-white shadow-md shadow-blue-900/20 sm:h-11 sm:w-11 sm:rounded-xl">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
                     </div>
-                    <span className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-medium text-slate-600">
+                    <span className="max-w-[55%] truncate rounded-full border border-slate-200 bg-slate-50 px-1.5 py-0.5 text-[8px] font-medium text-slate-600 sm:max-w-none sm:px-2.5 sm:py-1 sm:text-[10px]">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-[15px] font-semibold leading-snug text-[#0B1F3A] sm:text-base">
+                  <h3 className="text-[12px] font-semibold leading-snug text-[#0B1F3A] sm:text-base">
                     {item.title}
                   </h3>
-                  <p className="mt-1 text-[13px] font-medium text-[#1A6FD1]">
+                  <p className="mt-0.5 text-[11px] font-medium text-[#1A6FD1] sm:mt-1 sm:text-[13px]">
                     {item.subtitle}
                   </p>
-                  <p className="mt-2.5 text-[12.5px] leading-relaxed text-slate-500">
+                  <p className="mt-1.5 line-clamp-3 text-[11px] leading-relaxed text-slate-500 sm:mt-2.5 sm:line-clamp-none sm:text-[12.5px]">
                     {item.description}
                   </p>
 
-                  <ul className="mt-4 space-y-2">
+                  <ul className="mt-2.5 hidden space-y-2 sm:mt-4 sm:block">
                     {item.points.map((pt) => (
                       <li
                         key={pt}
@@ -173,7 +173,7 @@ export const WhyITEC: React.FC = () => {
                 </div>
 
                 {/* Curved bottom image */}
-                <div className="relative mt-auto h-28 overflow-hidden sm:h-32">
+                <div className="relative mt-auto h-16 overflow-hidden sm:h-32">
                   <div
                     className="absolute inset-x-0 -top-6 h-10 bg-white"
                     style={{
