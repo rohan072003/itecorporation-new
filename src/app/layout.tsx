@@ -30,6 +30,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/itec";

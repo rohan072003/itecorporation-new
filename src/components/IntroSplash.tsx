@@ -67,7 +67,7 @@ export const IntroSplash: React.FC<IntroSplashProps> = ({ onComplete }) => {
           width={720}
           height={200}
           priority
-          className="h-28 w-auto max-w-[88vw] object-contain sm:h-36 md:h-44 lg:h-48"
+          className="h-20 w-auto max-w-[min(88vw,20rem)] object-contain sm:h-36 sm:max-w-[88vw] md:h-44 lg:h-48"
           sizes="(max-width: 640px) 88vw, 720px"
         />
       </div>

@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
     <section
       id="hero"
       aria-label="Electrical Equipment & Power Electronics Supplier"
-      className="relative flex min-h-dvh items-start overflow-hidden border-b border-sky-100/80 lg:items-center"
+      className="relative flex min-h-0 items-start overflow-x-clip overflow-y-visible border-b border-sky-100/80 sm:min-h-[calc(100dvh-7.5rem)] lg:min-h-dvh lg:items-center"
     >
       {/* Soft flowing blue background — matches mockup blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
@@ -85,35 +85,35 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-4 lg:px-8 lg:pb-14 lg:pt-2">
-        <div className="grid w-full -translate-y-6 grid-cols-1 items-center gap-10 sm:-translate-y-10 lg:-translate-y-14 lg:grid-cols-12 lg:gap-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-4 pb-10 pt-4 sm:px-6 sm:pb-12 sm:pt-6 lg:px-8 lg:pb-14 lg:pt-2">
+        <div className="grid w-full translate-y-0 grid-cols-1 items-center gap-8 sm:-translate-y-6 sm:gap-10 lg:-translate-y-14 lg:grid-cols-12 lg:gap-8">
           {/* Left copy */}
           <div className="font-hero flex flex-col justify-center not-italic lg:col-span-6 xl:col-span-6">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-sky-200/80 bg-[#E8F2FC] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#0B4EA2] shadow-[0_1px_2px_rgba(11,78,162,0.06)]">
-              <Zap className="h-3.5 w-3.5 fill-[#0B4EA2]/15 text-[#0B4EA2]" strokeWidth={2.25} />
-              <span>Direct India Sourcing &amp; Export Partner</span>
+            <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-sky-200/80 bg-[#E8F2FC] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.05em] text-[#0B4EA2] shadow-[0_1px_2px_rgba(11,78,162,0.06)] sm:mb-5 sm:px-3.5 sm:text-[11px] sm:tracking-[0.06em]">
+              <Zap className="h-3.5 w-3.5 shrink-0 fill-[#0B4EA2]/15 text-[#0B4EA2]" strokeWidth={2.25} />
+              <span className="min-w-0 leading-snug">Direct India Sourcing &amp; Export Partner</span>
             </div>
 
-            <h1 className="mb-5 max-w-xl text-[2rem] font-semibold not-italic leading-[1.15] text-[#0B1F3A] sm:text-4xl md:text-[2.55rem] lg:text-[2.65rem]">
+            <h1 className="mb-4 max-w-xl text-[1.75rem] font-semibold not-italic leading-[1.18] text-[#0B1F3A] sm:mb-5 sm:text-4xl md:text-[2.55rem] lg:text-[2.65rem]">
               Electrical Equipment &amp;{" "}
               <span className="font-semibold text-[#1A6FD1]">Power Electronics Supplier</span>{" "}
               for Europe
             </h1>
 
-            <p className="mb-8 max-w-lg text-[15px] font-normal not-italic leading-[1.7] text-slate-500 sm:text-[15.5px]">
+            <p className="mb-6 max-w-lg text-[15px] font-normal not-italic leading-[1.7] text-slate-500 sm:mb-8 sm:text-[15.5px]">
               Source transformers, electrical components, voltage stabilisers, UPS
               systems and power electronics through ITEC. 100% factory-tested,
               CE-compliant, and export-ready for European OEMs and distributors.
             </p>
 
-            <div className="mb-10 flex flex-wrap items-center gap-3">
+            <div className="mb-8 flex w-full flex-col gap-3 sm:mb-10 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
               <button
                 type="button"
                 onClick={() => {
                   if (onViewProductsClick) onViewProductsClick();
                   else safeScrollTo("#products");
                 }}
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#0B4EA2] px-6 py-2.5 text-sm font-medium not-italic text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-6 py-2.5 text-sm font-medium not-italic text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
               >
                 <span>Browse Products</span>
                 <ArrowRight className="h-4 w-4" />
@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
                 href={CONTACT_DETAILS.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-6 py-2.5 text-sm font-medium not-italic text-[#0B4EA2] shadow-sm transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-200 bg-white px-6 py-2.5 text-sm font-medium not-italic text-[#0B4EA2] shadow-sm transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
                 aria-label="Chat on WhatsApp"
               >
                 <WhatsAppIcon className="h-4 w-4" />
@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onViewProductsClick }) => {
 
           {/* Right: Google Model Viewer */}
           <div className="relative flex items-center justify-center lg:col-span-6 xl:col-span-6">
-            <div className="relative mx-auto h-[min(72vw,420px)] w-full max-w-[560px] sm:h-[min(70vw,480px)] sm:max-w-[640px] lg:ml-auto lg:h-[min(72vh,640px)] lg:max-w-none lg:w-full">
+            <div className="relative mx-auto h-[min(68vw,320px)] w-full max-w-[560px] sm:h-[min(70vw,480px)] sm:max-w-[640px] lg:ml-auto lg:h-[min(72vh,640px)] lg:max-w-none lg:w-full">
               {/* Soft ground glow under model */}
               <div
                 className="pointer-events-none absolute inset-x-[10%] bottom-[4%] h-[18%] rounded-[50%] bg-sky-300/35 blur-2xl"

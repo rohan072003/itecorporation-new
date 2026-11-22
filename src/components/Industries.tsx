@@ -101,7 +101,7 @@ function IndustryCard({
           </div>
         </div>
         <span
-          className={`shrink-0 text-[10px] font-medium uppercase tracking-wide ${
+          className={`hidden shrink-0 text-[10px] font-medium uppercase tracking-wide sm:inline ${
             solid ? "text-sky-200/80" : "text-slate-400"
           }`}
         >
@@ -125,7 +125,7 @@ function MarqueeColumn({
 }) {
   const loop = [...items, ...items];
   return (
-    <div className="relative h-[480px] flex-1 overflow-hidden sm:h-[520px] lg:h-[560px]">
+    <div className="relative h-[380px] flex-1 overflow-hidden sm:h-[480px] md:h-[520px] lg:h-[560px]">
       <div
         className={`flex flex-col gap-4 will-change-transform ${
           direction === "up" ? "animate-industries-up" : "animate-industries-down"
@@ -159,7 +159,7 @@ export const Industries: React.FC = () => {
     <section
       id="industries"
       aria-label="Cross-Sector Deployment"
-      className="relative scroll-mt-20 overflow-hidden border-b border-sky-100 bg-white py-16 sm:py-20"
+      className="relative overflow-x-clip border-b border-sky-100 bg-white py-12 sm:py-20"
     >
       {/* Backdrop image across the full component — slight / soft opacity */}
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
@@ -176,11 +176,11 @@ export const Industries: React.FC = () => {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Centered heading — site consistency */}
-        <div className="font-hero mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+        <div className="font-hero mx-auto mb-8 max-w-3xl text-center sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-white px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#0B4EA2] shadow-sm">
             Cross-Sector Deployment
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
+          <h2 className="text-[1.65rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
             Industries{" "}
             <span className="text-[#1A6FD1]">Served</span>
           </h2>
@@ -218,7 +218,7 @@ export const Industries: React.FC = () => {
             <button
               type="button"
               onClick={() => safeScrollTo("#quote-enquiry")}
-              className="mt-7 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#0B4EA2] px-6 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+              className="mt-7 inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-6 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-fit"
             >
               Talk to us
               <ArrowRight className="h-4 w-4" />
@@ -226,19 +226,21 @@ export const Industries: React.FC = () => {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="flex gap-4 sm:gap-5">
+            <div className="flex gap-3 sm:gap-5">
               <MarqueeColumn
                 items={colA}
                 direction="up"
                 duration="38s"
                 startSolid={false}
               />
-              <MarqueeColumn
-                items={colB}
-                direction="down"
-                duration="44s"
-                startSolid={true}
-              />
+              <div className="hidden min-w-0 flex-1 sm:block">
+                <MarqueeColumn
+                  items={colB}
+                  direction="down"
+                  duration="44s"
+                  startSolid={true}
+                />
+              </div>
             </div>
           </div>
         </div>

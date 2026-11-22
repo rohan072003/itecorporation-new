@@ -12,11 +12,15 @@
     --blue-glow: rgba(30, 112, 214, 0.2);
     --gold-accent: #F59E0B;
     --steel-border: #E2E8F0;
+    /* Sticky ticker + navbar clearance for in-page anchors */
+    --nav-offset: 7.5rem;
   }
 
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -24,6 +28,21 @@
     color: #0A1D36;
     font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: clip;
+  }
+
+  /* Consistent sticky-nav clearance for section anchors */
+  #hero,
+  #quote-enquiry,
+  #products,
+  #capabilities,
+  #certifications,
+  #industries,
+  #contact {
+    scroll-margin-top: var(--nav-offset);
+  }
+
+  #product-listing {
+    scroll-margin-top: var(--nav-offset);
   }
 
   h1, h2, h3, h4, h5, h6 {

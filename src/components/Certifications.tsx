@@ -19,7 +19,7 @@ export const Certifications: React.FC = () => {
     <section
       id="certifications"
       aria-label="Statutory and Technical Compliance"
-      className="relative scroll-mt-20 overflow-hidden border-b border-sky-100 bg-white py-16 sm:py-20"
+      className="relative overflow-x-clip border-b border-sky-100 bg-white py-12 sm:py-20"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute -right-20 top-24 h-72 w-72 rounded-full bg-sky-100/60 blur-3xl" />
@@ -33,7 +33,7 @@ export const Certifications: React.FC = () => {
             <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2} />
             Statutory &amp; Technical Compliance
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
+          <h2 className="text-[1.65rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
             Certifications &amp;{" "}
             <span className="text-[#1A6FD1]">Documentation</span>
           </h2>
@@ -46,7 +46,7 @@ export const Certifications: React.FC = () => {
 
         {/* Intro visual + summary */}
         <div className="font-hero mb-12 grid grid-cols-1 overflow-hidden rounded-[1.35rem] border border-sky-100 bg-[#F7FAFE] shadow-[0_14px_40px_-22px_rgba(11,78,162,0.35)] lg:grid-cols-12">
-          <div className="relative min-h-[220px] lg:col-span-5 lg:min-h-full">
+          <div className="relative min-h-[180px] sm:min-h-[220px] lg:col-span-5 lg:min-h-full">
             <Image
               src={withBasePath(IMAGES.certificationsCompliance)}
               alt="Technical compliance dossiers and ISO documentation"

@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectProduct }) => {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 pb-28 sm:px-6 sm:py-16 sm:pb-16 lg:px-8">
         {/* Top CTA strip */}
         <div className="font-hero mb-12 flex flex-col items-start justify-between gap-5 rounded-[1.25rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm sm:flex-row sm:items-center sm:p-7">
           <div>
@@ -57,18 +57,18 @@ export const Footer: React.FC<FooterProps> = ({ onSelectProduct }) => {
               Talk to the Pune export desk today
             </h3>
           </div>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row sm:flex-wrap">
             <button
               type="button"
               onClick={() => safeScrollTo("#quote-enquiry")}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0B1F3A] transition hover:bg-sky-50"
+              className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0B1F3A] transition hover:bg-sky-50 sm:w-auto"
             >
               Contact us
               <ArrowRight className="h-4 w-4 text-[#0B4EA2]" />
             </button>
             <a
               href={`tel:${CONTACT_DETAILS.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1A6FD1]"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1A6FD1] sm:w-auto"
             >
               <Phone className="h-4 w-4" />
               {CONTACT_DETAILS.phoneDisplay || CONTACT_DETAILS.phone}
@@ -89,7 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectProduct }) => {
                 alt="ITECH — Indian Trading & Exports Corporation"
                 width={480}
                 height={160}
-                className="h-20 w-auto max-w-full object-contain sm:h-24"
+                className="h-14 w-auto max-w-full object-contain sm:h-20 md:h-24"
                 sizes="480px"
               />
             </Link>
@@ -115,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectProduct }) => {
                   <button
                     type="button"
                     onClick={() => safeScrollTo(item.href)}
-                    className="cursor-pointer text-sm text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                    className="block w-full cursor-pointer py-2.5 text-left text-sm text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                   >
                     {item.label}
                   </button>
@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectProduct }) => {
                   <button
                     type="button"
                     onClick={() => handleProductClick(p.name)}
-                    className="group flex w-full cursor-pointer items-center justify-between gap-2 text-left text-sm text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                    className="group flex min-h-11 w-full cursor-pointer items-center justify-between gap-2 py-2 text-left text-sm text-slate-400 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
                   >
                     <span className="truncate">{p.name}</span>
                     <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-slate-600 transition group-hover:text-sky-300" />

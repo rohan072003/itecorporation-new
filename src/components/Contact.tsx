@@ -28,7 +28,7 @@ export const Contact: React.FC = () => {
     <section
       id="contact"
       aria-label="Direct Export Desk & Contact Information"
-      className="relative scroll-mt-28 overflow-hidden border-b border-sky-100 bg-white bg-blueprint-grid py-16 sm:py-20"
+      className="relative overflow-x-clip border-b border-sky-100 bg-white bg-blueprint-grid py-12 sm:py-20"
     >
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white/70" aria-hidden="true" />
 
@@ -42,7 +42,7 @@ export const Contact: React.FC = () => {
             </span>
             Direct Export Desk &amp; Liaison
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
+          <h2 className="text-[1.65rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
             Direct Contact &amp;{" "}
             <span className="text-[#1A6FD1]">Pune Headquarters</span>
           </h2>
@@ -138,12 +138,12 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href={CONTACT_DETAILS.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
                 >
                   <WhatsAppIcon className="h-4 w-4" />
                   Chat on WhatsApp
@@ -151,7 +151,7 @@ export const Contact: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => safeScrollTo("#products")}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-sky-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2]"
+                  className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-sky-200 bg-white px-5 py-2.5 text-sm font-semibold text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] sm:w-auto"
                 >
                   Browse products
                   <ArrowRight className="h-4 w-4" />
@@ -159,7 +159,7 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative min-h-[260px] lg:col-span-5 lg:min-h-full">
+            <div className="relative min-h-[200px] sm:min-h-[260px] lg:col-span-5 lg:min-h-full">
               <Image
                 src={withBasePath(IMAGES.contactPuneOffice)}
                 alt="ITEC Pune headquarters building exterior"

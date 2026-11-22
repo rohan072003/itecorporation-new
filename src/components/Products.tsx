@@ -98,7 +98,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
     requestAnimationFrame(() => {
       const el = document.getElementById("product-listing");
       if (!el) return;
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      const top = el.getBoundingClientRect().top + window.scrollY - 128;
       window.scrollTo({ top, behavior: "smooth" });
     });
   };
@@ -118,10 +118,10 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
         type="button"
         onClick={() => selectCategory(name)}
         aria-pressed={isActive}
-        className="font-hero group flex min-w-[5.25rem] max-w-[7.25rem] flex-1 basis-[5.25rem] cursor-pointer flex-col items-center gap-1.5 focus-visible:outline-none sm:min-w-0 sm:max-w-none sm:basis-0"
+        className="font-hero group flex w-[30%] max-w-[7.5rem] cursor-pointer flex-col items-center gap-1.5 focus-visible:outline-none sm:w-auto sm:min-w-[5.5rem] sm:max-w-[8rem] sm:flex-1 xl:min-w-0 xl:max-w-none"
       >
         <span
-          className={`relative mx-auto flex aspect-square w-[min(100%,5.75rem)] items-center justify-center rounded-full transition-all duration-300 sm:w-[82%] sm:max-w-[6.5rem] ${
+          className={`relative mx-auto flex aspect-square w-[4.75rem] items-center justify-center rounded-full transition-all duration-300 sm:w-[min(100%,5.75rem)] xl:w-[82%] xl:max-w-[6.5rem] ${
             isActive
               ? "bg-[#0B4EA2]/15 shadow-[0_0_0_5px_rgba(11,78,162,0.12),0_10px_24px_-8px_rgba(11,78,162,0.4)]"
               : "bg-transparent"
@@ -144,7 +144,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           </span>
         </span>
         <span
-          className={`w-full px-0.5 text-center text-[10px] leading-snug transition-colors sm:text-[11px] md:text-[12px] lg:text-[13px] ${
+          className={`w-full px-0.5 text-center text-[11px] leading-tight transition-colors sm:text-[11px] md:text-[12px] lg:text-[13px] ${
             isActive ? "font-semibold text-[#0B4EA2]" : "font-medium text-[#0B1F3A]"
           }`}
         >
@@ -167,11 +167,11 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
     <section
       id="products"
       aria-label="Product Portfolio"
-      className="relative overflow-hidden border-b border-sky-100 bg-white py-16 sm:py-20"
+      className="relative overflow-x-clip border-b border-sky-100 bg-white py-12 sm:py-20"
     >
-      <div className="relative z-10 mx-auto w-full max-w-[92rem] px-2 sm:px-3 md:px-4 lg:px-5">
+      <div className="relative z-10 mx-auto w-full max-w-[92rem] px-4 sm:px-5 md:px-6 lg:px-5">
         {/* Header */}
-        <div className="font-hero mx-auto mb-10 max-w-3xl px-2 text-center sm:mb-12">
+        <div className="font-hero mx-auto mb-8 max-w-3xl text-center sm:mb-12">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-[#E8F2FC] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#0B4EA2]">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#0B4EA2] opacity-40" />
@@ -179,7 +179,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
             </span>
             15 Industrial Equipment Lines
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
+          <h2 className="text-[1.65rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
             Complete Product Portfolio &amp; Equipment Range
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm font-normal leading-relaxed text-slate-500 sm:text-[15px]">
@@ -188,9 +188,9 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           </p>
         </div>
 
-        {/* Category circles — single row using full width; wrap only when no space left */}
-        <div className="mb-12" role="group" aria-label="Product categories">
-          <div className="flex w-full flex-wrap items-start justify-center gap-x-1 gap-y-5 sm:flex-nowrap sm:justify-between sm:gap-x-1.5 md:gap-x-2 lg:gap-x-2.5">
+        {/* Category circles — wrap on phones; single row only on xl+ */}
+        <div className="mb-10 sm:mb-12" role="group" aria-label="Product categories">
+          <div className="flex w-full flex-wrap items-start justify-center gap-x-2 gap-y-5 sm:gap-x-3 md:gap-x-4 xl:flex-nowrap xl:justify-between xl:gap-x-2.5">
             {categories.map((cat) => (
               <CategoryCircle key={cat.name} {...cat} />
             ))}
@@ -214,13 +214,13 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           id="product-listing"
           role="region"
           aria-label="Product search and filters"
-          className="font-hero mb-10 scroll-mt-28 flex flex-col gap-3 rounded-2xl border border-sky-100 bg-[#F7FAFE] p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4"
+          className="font-hero mb-8 flex flex-col gap-3 rounded-2xl border border-sky-100 bg-[#F7FAFE] p-3 sm:mb-10 sm:flex-row sm:items-center sm:justify-between sm:p-4"
         >
           <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => setSelectedCategory("All")}
-              className={`cursor-pointer rounded-full px-4 py-2 text-[13px] font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] ${
+              className={`min-h-11 cursor-pointer rounded-full px-4 py-2 text-[13px] font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] ${
                 selectedCategory === "All"
                   ? "bg-[#0B4EA2] text-white shadow-md shadow-blue-900/15"
                   : "border border-sky-200 bg-white text-slate-600 hover:border-[#0B4EA2]/35 hover:text-[#0B4EA2]"
@@ -243,13 +243,13 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
               placeholder="Search equipment, rating, or keyword…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-full border border-sky-200 bg-white py-2.5 pl-10 pr-10 text-sm text-[#0B1F3A] placeholder:text-slate-400 shadow-sm transition focus:border-[#0B4EA2] focus:outline-none focus:ring-2 focus:ring-[#0B4EA2]/20"
+              className="min-h-11 w-full rounded-full border border-sky-200 bg-white py-2.5 pl-10 pr-11 text-base text-[#0B1F3A] placeholder:text-slate-400 shadow-sm transition focus:border-[#0B4EA2] focus:outline-none focus:ring-2 focus:ring-[#0B4EA2]/20 sm:text-sm"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 cursor-pointer rounded-full p-1 text-slate-400 hover:bg-sky-50 hover:text-[#0B4EA2]"
+                className="absolute right-1.5 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full text-slate-400 hover:bg-sky-50 hover:text-[#0B4EA2]"
                 aria-label="Clear search"
               >
                 <X className="h-4 w-4" />
@@ -285,8 +285,8 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
                 key={product.id}
                 className="font-hero group flex flex-col overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-[0_10px_30px_-18px_rgba(11,78,162,0.28)] transition hover:-translate-y-0.5 hover:border-[#0B4EA2]/25 hover:shadow-[0_16px_40px_-16px_rgba(11,78,162,0.35)]"
               >
-                <div className="relative flex h-56 items-center justify-center bg-[#F7FAFE] p-5 sm:h-60">
-                  <span className="absolute left-3 top-3 z-10 rounded-full bg-[#0B1F3A] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-white">
+                <div className="relative flex h-48 items-center justify-center bg-[#F7FAFE] p-4 sm:h-60 sm:p-5">
+                  <span className="absolute left-3 top-3 z-10 max-w-[calc(100%-1.5rem)] truncate rounded-full bg-[#0B1F3A] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-white">
                     {product.category}
                   </span>
                   <div className="relative h-full w-full">
@@ -318,7 +318,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
                     <button
                       type="button"
                       onClick={() => handleEnquireClick(product.name)}
-                      className="inline-flex flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full bg-[#0B4EA2] px-4 py-2.5 text-[13px] font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                      className="inline-flex min-h-11 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-full bg-[#0B4EA2] px-4 py-2.5 text-[13px] font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
                     >
                       <MessageSquare className="h-3.5 w-3.5" />
                       Enquire
@@ -326,7 +326,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
                     <button
                       type="button"
                       onClick={() => setActiveModalProduct(product)}
-                      className="inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-full border border-sky-200 bg-white px-4 py-2.5 text-[13px] font-medium text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2]"
+                      className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-1.5 rounded-full border border-sky-200 bg-white px-4 py-2.5 text-[13px] font-medium text-[#0B4EA2] transition hover:border-[#0B4EA2]/40 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2]"
                     >
                       <Eye className="h-3.5 w-3.5" />
                       View
@@ -339,7 +339,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
         )}
 
         {/* Bottom trust strip */}
-        <div className="font-hero flex flex-col items-start justify-between gap-5 rounded-2xl border border-sky-100 bg-[#F7FAFE] p-6 sm:flex-row sm:items-center sm:p-7">
+        <div className="font-hero flex flex-col items-stretch justify-between gap-5 rounded-2xl border border-sky-100 bg-[#F7FAFE] p-5 sm:flex-row sm:items-center sm:p-7">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0B4EA2] text-white">
               <ShieldCheck className="h-5 w-5" />
@@ -357,7 +357,7 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
           <button
             type="button"
             onClick={() => safeScrollTo("#quote-enquiry")}
-            className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+            className="inline-flex min-h-11 w-full shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
           >
             Request custom RFQ
             <ArrowRight className="h-4 w-4" />
@@ -451,18 +451,18 @@ export const Products: React.FC<ProductsProps> = ({ onEnquireProduct }) => {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-end gap-2 border-t border-sky-100 bg-[#F7FAFE] px-5 py-4 sm:px-6">
+            <div className="flex flex-col-reverse gap-2 border-t border-sky-100 bg-[#F7FAFE] px-4 py-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:px-6">
               <button
                 type="button"
                 onClick={() => setActiveModalProduct(null)}
-                className="cursor-pointer rounded-full border border-sky-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2]"
+                className="min-h-11 w-full cursor-pointer rounded-full border border-sky-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] sm:w-auto"
               >
                 Close
               </button>
               <button
                 type="button"
                 onClick={() => handleEnquireClick(activeModalProduct.name)}
-                className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2"
+                className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0B4EA2] px-5 py-2.5 text-sm font-medium text-white shadow-md shadow-blue-900/15 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:w-auto"
               >
                 Enquire
                 <ArrowRight className="h-4 w-4" />

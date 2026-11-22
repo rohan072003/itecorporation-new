@@ -76,7 +76,7 @@ export const LandingPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
+    <div className="flex min-h-dvh flex-col overflow-x-clip bg-[#F8FAFC]">
       {showIntro && <IntroSplash onComplete={handleIntroComplete} />}
 
       {/* Site mounts under the intro so the 3D model can load in parallel */}

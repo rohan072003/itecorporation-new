@@ -80,7 +80,7 @@ export const WhyITEC: React.FC = () => {
     <section
       id="capabilities"
       aria-label="Why Choose ITEC"
-      className="relative scroll-mt-20 overflow-hidden border-b border-sky-100 bg-[#F7FAFE] py-16 sm:py-20"
+      className="relative overflow-x-clip border-b border-sky-100 bg-[#F7FAFE] py-12 sm:py-20"
     >
       <div id="why-itec" className="absolute -top-20" />
 
@@ -111,7 +111,7 @@ export const WhyITEC: React.FC = () => {
             Global Capabilities
           </div>
 
-          <h2 className="text-2xl font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
+          <h2 className="text-[1.65rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-3xl md:text-[2.15rem]">
             Proven Manufacturing &amp;{" "}
             <span className="relative inline-block text-[#1A6FD1]">
               Global Export

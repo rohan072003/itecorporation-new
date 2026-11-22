@@ -17,7 +17,7 @@ export const FloatingWhatsApp: React.FC = () => {
   return (
     <aside
       aria-label="Instant WhatsApp Help"
-      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-50 flex flex-col items-end gap-2 group sm:bottom-6 sm:right-6"
     >
       {showTooltip && (
         <div className="font-hero hidden animate-in fade-in slide-in-from-bottom-2 items-center gap-2 rounded-xl border border-emerald-500/30 bg-[#0B1F3A] px-3.5 py-2.5 text-xs text-white shadow-xl duration-300 sm:flex">

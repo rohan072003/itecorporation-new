@@ -116,13 +116,13 @@ export const QuoteEnquiry: React.FC<QuoteEnquiryProps> = ({
   };
 
   const fieldClass =
-    "w-full rounded-xl border border-sky-100 bg-[#F7FAFE] px-4 py-3 text-[15px] text-[#0B1F3A] outline-none transition placeholder:text-slate-400 focus:border-[#0B4EA2]/45 focus:bg-white focus:ring-2 focus:ring-[#0B4EA2]/15";
+    "min-h-11 w-full rounded-xl border border-sky-100 bg-[#F7FAFE] px-4 py-3 text-base text-[#0B1F3A] outline-none transition placeholder:text-slate-400 focus:border-[#0B4EA2]/45 focus:bg-white focus:ring-2 focus:ring-[#0B4EA2]/15 sm:text-[15px]";
 
   return (
     <section
       id="quote-enquiry"
       aria-label="Request a Quick Quote"
-      className="relative scroll-mt-28 flex min-h-[calc(100dvh-5.5rem)] items-center overflow-hidden border-b border-sky-100 bg-[#F4F8FD]"
+      className="relative flex min-h-0 items-center overflow-x-clip border-b border-sky-100 bg-[#F4F8FD] lg:min-h-[calc(100dvh-7.5rem)]"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
@@ -137,7 +137,7 @@ export const QuoteEnquiry: React.FC<QuoteEnquiryProps> = ({
         />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 py-12 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:py-16">
         {/* Left copy */}
         <div className="font-hero lg:col-span-5">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200/80 bg-white/80 px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.06em] text-[#0B4EA2] shadow-sm">
@@ -145,7 +145,7 @@ export const QuoteEnquiry: React.FC<QuoteEnquiryProps> = ({
             Pune export desk
           </div>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0B1F3A] sm:text-4xl lg:text-[2.55rem] lg:leading-[1.15]">
+          <h2 className="text-[1.75rem] font-semibold tracking-tight text-[#0B1F3A] sm:text-4xl lg:text-[2.55rem] lg:leading-[1.15]">
             Get engineering pricing{" "}
             <span className="text-[#1A6FD1]">without the runaround</span>
           </h2>
@@ -189,7 +189,7 @@ export const QuoteEnquiry: React.FC<QuoteEnquiryProps> = ({
 
         {/* Right form */}
         <div className="lg:col-span-7">
-          <div className="font-hero overflow-hidden rounded-[1.5rem] border border-sky-100 bg-white p-6 shadow-[0_24px_60px_-28px_rgba(11,78,162,0.45)] sm:p-8">
+          <div className="font-hero overflow-hidden rounded-[1.25rem] border border-sky-100 bg-white p-4 shadow-[0_24px_60px_-28px_rgba(11,78,162,0.45)] sm:rounded-[1.5rem] sm:p-8">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#1A6FD1]">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -283,7 +283,7 @@ export const QuoteEnquiry: React.FC<QuoteEnquiryProps> = ({
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0B4EA2] to-[#1A6FD1] px-5 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-white shadow-lg shadow-blue-900/20 transition hover:from-[#093d82] hover:to-[#0B4EA2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
+                className="inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0B4EA2] to-[#1A6FD1] px-5 py-3.5 text-sm font-semibold uppercase tracking-[0.06em] text-white shadow-lg shadow-blue-900/20 transition hover:from-[#093d82] hover:to-[#0B4EA2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-70"
               >
                 {submitting ? "Sending…" : "Submit Inquiry"}
                 <Send className="h-4 w-4" />

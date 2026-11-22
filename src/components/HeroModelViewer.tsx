@@ -73,7 +73,7 @@ export const HeroModelViewer: React.FC<HeroModelViewerProps> = ({
   if (!mounted) {
     return (
       <div
-        className="h-full w-full origin-center scale-[1.04] bg-transparent sm:scale-[1.06] lg:scale-[1.08]"
+        className="h-full w-full origin-center scale-100 bg-transparent sm:scale-[1.04] lg:scale-[1.08]"
         aria-hidden="true"
       />
     );
@@ -98,7 +98,7 @@ export const HeroModelViewer: React.FC<HeroModelViewerProps> = ({
       exposure="1.05"
       environment-image="neutral"
       interaction-prompt="none"
-      touch-action="none"
+      touch-action="pan-y"
       camera-orbit="25deg 75deg 95%"
       min-camera-orbit="-Infinity 75deg 95%"
       max-camera-orbit="Infinity 75deg 95%"
@@ -106,7 +106,7 @@ export const HeroModelViewer: React.FC<HeroModelViewerProps> = ({
       min-field-of-view="26deg"
       max-field-of-view="26deg"
       orientation="0deg 0deg 0deg"
-      className="h-full w-full origin-center scale-[1.04] bg-transparent sm:scale-[1.06] lg:scale-[1.08]"
+      className="h-full w-full origin-center scale-100 bg-transparent sm:scale-[1.04] lg:scale-[1.08]"
       style={{ width: "100%", height: "100%" }}
       suppressHydrationWarning
     />

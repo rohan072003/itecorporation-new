@@ -30,7 +30,7 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
   return (
     <section
       aria-label="Direct Technical Engagement"
-      className="relative overflow-hidden border-y border-[#0B4EA2]/30 bg-[#071322] py-16 text-white sm:py-20"
+      className="relative overflow-x-clip border-y border-[#0B4EA2]/30 bg-[#071322] py-12 text-white sm:py-20"
     >
       {/* Dark theme atmosphere — aligned with new site language */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -64,7 +64,7 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
             Direct Technical Engagement
           </div>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
+          <h2 className="text-[1.75rem] font-semibold tracking-tight text-white sm:text-4xl md:text-[2.6rem] md:leading-[1.15]">
             Connect. Collaborate.{" "}
             <span className="text-sky-300">Grow Together.</span>
           </h2>
@@ -92,11 +92,11 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
             ))}
           </div>
 
-          <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-9 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             <button
               type="button"
               onClick={handleClick}
-              className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B1F3A] shadow-lg shadow-black/20 transition hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322]"
+              className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B1F3A] shadow-lg shadow-black/20 transition hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:w-auto"
             >
               Talk to ITEC
               <ArrowRight className="h-4 w-4 text-[#0B4EA2]" />
@@ -107,7 +107,7 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instant WhatsApp Chat with ITEC"
-              className="inline-flex items-center gap-2 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-950/40 transition hover:bg-[#1A6FD1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322]"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-400/35 bg-[#0B4EA2] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-blue-950/40 transition hover:bg-[#1A6FD1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071322] sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
               Chat on WhatsApp
@@ -115,7 +115,7 @@ export const CTA: React.FC<CTAProps> = ({ onTalkToITEC }) => {
 
             <a
               href={`tel:${CONTACT_DETAILS.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sky-100 backdrop-blur-sm transition hover:border-sky-300/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-sky-100 backdrop-blur-sm transition hover:border-sky-300/40 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 sm:w-auto"
             >
               <Phone className="h-4 w-4 text-sky-300" />
               {CONTACT_DETAILS.phoneDisplay || CONTACT_DETAILS.phone}

@@ -83,12 +83,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
       <header
         className={`rounded-b-2xl border border-t-0 border-sky-100/90 bg-white transition-all duration-200 sm:rounded-b-3xl ${
           isScrolled
-            ? "py-2.5 shadow-[0_14px_36px_-16px_rgba(11,78,162,0.4)]"
-            : "py-3 shadow-[0_8px_24px_-18px_rgba(11,78,162,0.28)]"
+            ? "py-2 shadow-[0_14px_36px_-16px_rgba(11,78,162,0.4)] sm:py-2.5"
+            : "py-2.5 shadow-[0_8px_24px_-18px_rgba(11,78,162,0.28)] sm:py-3"
         }`}
       >
         <div className="mx-auto max-w-7xl px-3 sm:px-5 lg:px-6">
-          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-2 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-4">
+          <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-1.5 sm:gap-2 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-4">
             {/* Left: Logo image only — no crop box */}
             <div className="justify-self-start">
               <Link
@@ -102,8 +102,8 @@ export const Navbar: React.FC<NavbarProps> = () => {
                   width={360}
                   height={88}
                   priority
-                  className="h-12 w-auto max-w-none object-contain transition group-hover:opacity-90 sm:h-14 lg:h-16"
-                  sizes="360px"
+                  className="h-9 w-auto max-w-[min(42vw,9.25rem)] object-contain transition group-hover:opacity-90 sm:h-12 sm:max-w-[12rem] md:h-14 md:max-w-none lg:h-16"
+                  sizes="(max-width: 640px) 42vw, 360px"
                 />
               </Link>
             </div>
@@ -141,15 +141,16 @@ export const Navbar: React.FC<NavbarProps> = () => {
               <button
                 type="button"
                 onClick={handleRequestQuoteClick}
-                className="font-hero inline-flex shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-[#0B4EA2] px-4 py-2 text-[13px] font-semibold leading-none text-white shadow-md shadow-blue-900/20 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:px-5 sm:text-[14px]"
+                className="font-hero inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-[#0B4EA2] px-3 py-2 text-[12px] font-semibold leading-none text-white shadow-md shadow-blue-900/20 transition hover:bg-[#093d82] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] focus-visible:ring-offset-2 sm:px-5 sm:text-[14px]"
               >
-                <span className="whitespace-nowrap">Request Quote</span>
+                <span className="whitespace-nowrap sm:hidden">Quote</span>
+                <span className="hidden whitespace-nowrap sm:inline">Request Quote</span>
                 <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
               </button>
 
               <button
                 type="button"
-                className="inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-[#0B4EA2]/20 bg-[#E8F2FC] text-[#0B4EA2] transition hover:border-[#0B4EA2] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] lg:hidden"
+                className="inline-flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full border-2 border-[#0B4EA2]/20 bg-[#E8F2FC] text-[#0B4EA2] transition hover:border-[#0B4EA2] hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0B4EA2] lg:hidden"
                 aria-expanded={mobileOpen}
                 aria-controls="mobile-nav"
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
